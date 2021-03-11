@@ -115,6 +115,17 @@ namespace SPH.Api
                 });
 #endif
             });
+
+            services.AddCors(options =>
+            {
+                options.AddPolicy("CorsDEV", builder =>
+                {
+                    builder
+                        .WithOrigins()
+                        .AllowAnyMethod()
+                        .AllowAnyHeader();
+                });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -133,6 +144,10 @@ namespace SPH.Api
             app.UseAuthentication();
             app.UseRouting();
             app.UseAuthorization();
+
+            app.UseStaticFiles();
+            app.UseHttpsRedirection();
+            app.UseCors("CorsDEV");
 
             app.UseSerilogRequestLogging();
 
