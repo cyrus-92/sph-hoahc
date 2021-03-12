@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <Import Project="..\..\common.props" />
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <RootNamespace>SPH.HoaHC</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SPH.HoaHC.Application.Contracts\SPH.HoaHC.Application.Contracts.csproj" />
+  <ProjectReference Include="..\..\modules\SPH.HoaHC.DataGov\src\SPH.HoaHC.DataGov.HttpApi.Client\SPH.HoaHC.DataGov.HttpApi.Client.csproj" /></ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Volo.Abp.Account.HttpApi.Client" Version="4.2.2" />
+    <PackageReference Include="Volo.Abp.Identity.HttpApi.Client" Version="4.2.2" />
+    <PackageReference Include="Volo.Abp.PermissionManagement.HttpApi.Client" Version="4.2.2" />
+    <PackageReference Include="Volo.Abp.TenantManagement.HttpApi.Client" Version="4.2.2" />
+    <PackageReference Include="Volo.Abp.FeatureManagement.HttpApi.Client" Version="4.2.2" />
+  </ItemGroup>
+
+</Project>
