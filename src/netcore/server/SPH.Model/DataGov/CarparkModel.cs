@@ -6,6 +6,9 @@ namespace SPH.Model.DataGov
 {
     public class CarparkModel
     {
+        [JsonProperty("id")]
+        public Guid Id => Guid.NewGuid();
+
         [JsonProperty("carpark_info")]
         public IEnumerable<CarparkLotModel> CarparkLots { get; set; }
 

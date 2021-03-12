@@ -46,7 +46,7 @@ namespace SPH.Service.Users
                 cancellationToken: cancellationToken
             );
             if (user == null)
-                throw new UnauthorizedAccessException("The request is invalid.");
+                throw new BadRequestException("The request is invalid.");
 
             return new OkResponseModel<UserProfileModel>(mapper.Map<UserProfileModel>(user));
         }
@@ -58,7 +58,7 @@ namespace SPH.Service.Users
                 cancellationToken: cancellationToken
             );
             if (user == null)
-                throw new UnauthorizedAccessException("The email or password is invalid.");
+                return new AuthorizedResponseModel("The email or password is invalid.");
 
             var passwordHashed = CryptoHelper.Encrypt(loginUser.Password, user.PasswordSalt);
             if (!passwordHashed.Equals(user.PasswordHashed))

@@ -121,7 +121,7 @@ namespace SPH.Api
                 options.AddPolicy("CorsDEV", builder =>
                 {
                     builder
-                        .WithOrigins()
+                        .AllowAnyOrigin()
                         .AllowAnyMethod()
                         .AllowAnyHeader();
                 });
@@ -138,16 +138,15 @@ namespace SPH.Api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseMiddleware(typeof(HandleExceptionMiddleware));
-
-            app.UseHttpsRedirection();
-            app.UseAuthentication();
-            app.UseRouting();
-            app.UseAuthorization();
-
-            app.UseStaticFiles();
             app.UseHttpsRedirection();
             app.UseCors("CorsDEV");
+
+            app.UseMiddleware(typeof(HandleExceptionMiddleware));
+
+            app.UseStaticFiles();
+            app.UseRouting();
+            app.UseAuthentication();
+            app.UseAuthorization();
 
             app.UseSerilogRequestLogging();
 
@@ -160,6 +159,8 @@ namespace SPH.Api
             {
                 endpoints.MapControllers();
             });
+
+            app.UseHttpsRedirection();
         }
     }
 }

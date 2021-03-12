@@ -9,7 +9,6 @@ namespace SPH.Api.Controllers
     [Produces("application/json")]
     [ApiController]
     [Authorize]
-    [EnableCors("CorsDEV")]
     public class BaseController : ControllerBase
     {
         protected readonly ILogger logger;
