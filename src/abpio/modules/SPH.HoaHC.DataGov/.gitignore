@@ -251,10 +251,8 @@ paket-files/
 .idea/
 *.sln.iml
 
-# HoaHC
-src/SPH.HoaHC.Web/Logs/*
-src/SPH.HoaHC.Web.Host/Logs/*
-src/SPH.HoaHC.IdentityServer/Logs/*
-src/SPH.HoaHC.HttpApi.Host/Logs/*
-src/SPH.HoaHC.HttpApi.HostWithIds/Logs/*
-src/SPH.HoaHC.DbMigrator/Logs/*
+# DataGov
+host/SPH.HoaHC.DataGov.IdentityServer/Logs/logs.txt
+host/SPH.HoaHC.DataGov.HttpApi.Host/Logs/logs.txt
+host/SPH.HoaHC.DataGov.Web.Host/Logs/logs.txt
+host/SPH.HoaHC.DataGov.Web.Unified/Logs/logs.txt

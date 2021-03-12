@@ -1,0 +1,33 @@
+﻿@page
+@using Microsoft.Extensions.Localization
+@using SPH.HoaHC.DataGov.Localization
+@model SPH.HoaHC.DataGov.Web.Pages.DataGov.IndexModel
+@inject IStringLocalizer<DataGovResource> L
+@{
+}
+
+<h1>DataGov</h1>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>No.</th>
+            <th>Total lots</th>
+            <th>Lot type</th>
+            <th>Available lot</th>
+            <th>Last modified time</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var carpark in Model.carparkModels)
+        {
+            <tr>
+                <th>@carpark.Number</th>
+                <td style="text-align:right;">@carpark.CarparkLots?.FirstOrDefault()?.TotalSlots</td>
+                <td>@carpark.CarparkLots?.FirstOrDefault()?.Type</td>
+                <td style="text-align:right;">@carpark.CarparkLots?.FirstOrDefault()?.Available</td>
+                <td>@carpark.LastModifiedTime</td>
+            </tr>
+        }
+    </tbody>
+</table>

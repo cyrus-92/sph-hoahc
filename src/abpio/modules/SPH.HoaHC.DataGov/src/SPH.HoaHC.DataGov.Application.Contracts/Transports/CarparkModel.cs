@@ -1,0 +1,21 @@
+﻿using Newtonsoft.Json;
+using System;
+using System.Collections.Generic;
+
+namespace SPH.HoaHC.DataGov.Transports
+{
+    public class CarparkModel
+    {
+        [JsonProperty("id")]
+        public Guid Id => Guid.NewGuid();
+
+        [JsonProperty("carpark_info")]
+        public IEnumerable<CarparkLotModel> CarparkLots { get; set; }
+
+        [JsonProperty("carpark_number")]
+        public string Number { get; set; }
+
+        [JsonProperty("update_datetime")]
+        public DateTime LastModifiedTime { get; set; }
+    }
+}
